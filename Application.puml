@@ -1,0 +1,84 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+-class TodoItem {
+    -Date : dueDate
+    -String : description
+    -Boolean : completedMark
+    +TodoItem(dueDate, description)
+    +editDueDate(newDueDate)
+    +editDescription(newDescription)
+    +changeCompletedMark()
+    +getDueDate() : String
+    +getDescription() : String
+}
+  TodoList o--> TodoItem
+  TodoController o--> TodoList
+
+
++class TodoList {
+    -todoList : ObservableList<TodoItem> list:
+    -fName : File
+
+    +TodoList()
+    +addItem(TodoItem)
+    +add(String, String)
+    +changeCompletedMark(TodoItem)
+    +delete(TodoItem)
+    +editfName(File)
+    +printFile()
+    +editDueDate(TodoItem, String)
+    +editDescription(TodoItem, String)
+    +getList() : ObservableList<TodoItem>
+    +getfName() : File
+    +getIncompletedItems() : ObservableList<TodoItem>
+    +getCompletedItems() : ObservableList<TodoItem>
+    +readData()
+    +inputData()
+    +search(int, String, String) : ObservableList<TodoItem>
+
+}
+
+
+
++class TodoController implements Initializable {
+    -todoList : list
+    -completedItems : ObservableList<TodoItem>
+    -addB : Button
+    -deleteB : Button
+    -finishedMark : Button
+    -date : TextField
+    -description : TextField
+    -table : TableView<TodoItem>
+    -todoDate : TableColumn<TodoItem, String>
+    -TodoDescription : TableColumn<TodoItem, String>
+    -todoCompletedMarker : TableColumn<TodoItem, Boolean>
+    -menuCompletedItems : MenuItem
+    -menuIncompletedItems : MenuItem
+    -clearList : MenuItem
+    -viewAll: MenuItem
+
+    +handleAddButton()
+    +handleDeleteButton()
+    +handleClearList()
+    +handleFinishedMark()
+    +handleViewAll()
+    +handleCompletedMarks()
+    +handleIncompletedMarks()
+    +refresh()
+    +handleOpen()
+    +handleExportList()
+    +handleSearch()
+    +setUpDate()
+    +setUpDesc()
+    +popupError(String)
+    +initialize(URL location, ResourceBundle resources)
+
+
+}
+Interface Initializable
+note left: JavaFX Interface
+
+
+
+@enduml

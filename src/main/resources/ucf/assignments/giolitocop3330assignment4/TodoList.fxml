@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.chart.BarChart?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.giolitocop3330assignment4.TodoController">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem fx:id="clearList" mnemonicParsing="false" onAction="#handleClearList" text="Clear List" />
+                        <MenuItem fx:id="exportList" mnemonicParsing="false" onAction="#handleExportList" text="Export List" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="View">
+                    <items>
+                        <MenuItem fx:id="menuCompletedItems" mnemonicParsing="false" onAction="#handleCompletedMarks" text="Completed Items" />
+                        <MenuItem fx:id="menuIncompletedItems" mnemonicParsing="false" onAction="#handleIncompletedMarks" text="Incompleted Items" />
+                        <MenuItem fx:id="viewAll" mnemonicParsing="false" onAction="#handleViewAll" text="View All" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <bottom>
+        <HBox prefHeight="29.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <children>
+                <TextField fx:id="description" prefHeight="24.0" prefWidth="205.0" promptText="Description" />
+                <TextField fx:id="date" prefHeight="24.0" prefWidth="205.0" promptText="YYYY-MM-DD" />
+
+
+                <Button fx:id="addB" mnemonicParsing="false" onAction="#handleAddButton" text="Add" />
+                <Button fx:id="search" mnemonicParsing="false" onAction="#handleSearch" text="Search" />
+                <Button fx:id="deleteB" mnemonicParsing="false" onAction="#handleDeleteButton" text="Delete" />
+                <Button fx:id="finishedMark" mnemonicParsing="false" onAction="#handleFinishedMark" text="Finish" />
+            </children>
+        </HBox>
+    </bottom>
+    <center>
+        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <TableView fx:id="table" prefHeight="346.0" prefWidth="600.0">
+                    <columns>
+
+                        <TableColumn fx:id="todoDescription" prefWidth="450.0" sortable="false" text="Description" />
+                        <TableColumn fx:id="todoDate" minWidth="0.0" prefWidth="170.0" text="Date" />
+
+                    </columns>
+                </TableView>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>
